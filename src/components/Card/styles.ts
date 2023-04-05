@@ -42,7 +42,6 @@ export const Name = styled.span`
 
 export const Status = styled.span`
   font-size: 14px;
-  font-weight: bold;
 `;
 
 export const Label = styled.span`
