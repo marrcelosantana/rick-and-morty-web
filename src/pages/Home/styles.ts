@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  padding: 0 20%;
+  padding: 0 10%;
   margin-top: 1.25rem;
 `;
 
@@ -22,8 +22,8 @@ export const CardList = styled.div`
   width: 100%;
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 25px;
 `;

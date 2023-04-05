@@ -1,4 +1,4 @@
-import avatar from "@/assets/images.png";
+import { CharacterDTO } from "@/models/CharacterDTO";
 
 import {
   Avatar,
@@ -12,25 +12,31 @@ import {
   DetailInfo,
 } from "./styles";
 
-export function Card() {
+interface CardProps {
+  character: CharacterDTO;
+}
+
+export function Card({ character }: CardProps) {
   return (
     <Container>
-      <Avatar src={avatar} />
+      <Avatar src={character.image} />
 
       <Info>
         <FirstInfo>
-          <Name>Morty</Name>
-          <Status>Dead - Alien</Status>
+          <Name>{character.name}</Name>
+          <Status>
+            {character.status} - {character.species}
+          </Status>
         </FirstInfo>
 
         <Details>
-          <Label>Gender:</Label>
-          <DetailInfo>Male</DetailInfo>
+          <Label>Origin:</Label>
+          <DetailInfo>{character.origin.name}</DetailInfo>
         </Details>
 
         <Details>
           <Label>Location:</Label>
-          <DetailInfo>Earth</DetailInfo>
+          <DetailInfo>{character.location.name}</DetailInfo>
         </Details>
       </Info>
     </Container>

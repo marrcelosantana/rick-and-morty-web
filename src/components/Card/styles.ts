@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 250px;
-  height: 380px;
+  height: 400px;
   border-radius: 8px;
 
   background-color: ${({ theme }) => theme.CARD_BACKGROUND};
@@ -37,7 +37,7 @@ export const Details = styled.div`
 export const Name = styled.span`
   font-size: 22px;
   font-weight: bolder;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 `;
 
 export const Status = styled.span`
@@ -53,5 +53,5 @@ export const Label = styled.span`
 `;
 
 export const DetailInfo = styled.span`
-  font-size: 16px;
+  font-size: 14px;
 `;
