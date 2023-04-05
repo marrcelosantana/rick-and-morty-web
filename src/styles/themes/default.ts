@@ -1,12 +1,14 @@
 export const defaultTheme = {
-  "white-100": "#fff",
+  WHITE: "#fff",
+  GRAY_500: "#7C7C8A",
 
-  "body-background": "#202328",
-  "screen-background": "#272b33",
-  "card-background": "#3b3e43",
-  "text-white": "#f5f5f5",
-  "text-gray": "#9e9e9e",
+  BODY_BACKGROUND: "#202328",
+  SCREEN_BACKGROUND: "#272b33",
+  CARD_BACKGROUND: "#3b3e43",
 
-  "green-300": "#55cb44",
-  "red-300": "#d53c2e",
+  TEXT_WHITE: "#f5f5f5",
+  TEXT_GRAY: "#9e9e9e",
+
+  GREEN: "#55cb44",
+  RED: "#d53c2e",
 } as const;
