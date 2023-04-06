@@ -55,7 +55,13 @@ export const CardList = styled.div`
   @media (max-width: 414px) {
     align-items: center;
     justify-content: center;
-    grid-template-columns: auto;
+    grid-template-columns: auto !important;
+  }
+
+  @media (max-width: 920px) {
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto auto;
   }
 `;
 
