@@ -37,6 +37,10 @@ export const Input = styled.input`
   color: ${({ theme }) => theme.TEXT_WHITE};
 
   position: relative;
+
+  &::placeholder {
+    color: ${({ theme }) => theme.GRAY_500};
+  }
 `;
 
 export const Actions = styled.div`
