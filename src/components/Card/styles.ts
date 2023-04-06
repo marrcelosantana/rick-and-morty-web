@@ -1,11 +1,30 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const bounceAnimation = keyframes`
+  0%, 20%, 60%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+`;
 
 export const Container = styled.div`
   width: 250px;
   height: 400px;
   border-radius: 8px;
-
   background-color: ${({ theme }) => theme.CARD_BACKGROUND};
+
+  &:hover {
+    box-shadow: 4px 6px 6px #000000;
+    animation: ${bounceAnimation} 0.8s;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -43,6 +62,7 @@ export const Name = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: default;
 `;
 
 export const Status = styled.span`

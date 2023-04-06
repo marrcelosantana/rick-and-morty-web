@@ -52,9 +52,15 @@ export function Home() {
     }
   }
 
-  function handleSearch({ character_name }: FormDataProps) {
-    console.log(character_name);
-    reset({ character_name: "" });
+  async function handleSearch({ character_name }: FormDataProps) {
+    try {
+      const query = character_name.toLowerCase();
+      const response = await api.get(`/character/?name=${query}`);
+      setCharacters(response.data.results);
+      reset({ character_name: "" });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
@@ -81,7 +87,7 @@ export function Home() {
         </div>
         <Select>
           <option selected disabled value="">
-            Select a option...
+            Status...
           </option>
           <option value="alive">Alive</option>
           <option value="dead">Dead</option>
