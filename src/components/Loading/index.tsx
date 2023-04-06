@@ -1,12 +1,10 @@
-import Spinner from "react-bootstrap/Spinner";
+import loadingGif from "@/assets/portal-rick-and-morty.gif";
 import { Container } from "./styles";
 
 export function Loading() {
   return (
     <Container>
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
+      <img src={loadingGif} />
     </Container>
   );
 }

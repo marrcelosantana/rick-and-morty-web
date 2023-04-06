@@ -6,4 +6,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 400px;
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
 `;

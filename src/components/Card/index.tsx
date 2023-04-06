@@ -21,9 +21,7 @@ interface CardProps {
 export function Card({ character }: CardProps) {
   return (
     <Container>
-      {!character ? (
-        <Loading />
-      ) : (
+      {character ? (
         <>
           <Avatar src={character.image} alt={character.name} />
 
@@ -55,6 +53,8 @@ export function Card({ character }: CardProps) {
             </Details>
           </Info>
         </>
+      ) : (
+        <Loading />
       )}
     </Container>
   );
