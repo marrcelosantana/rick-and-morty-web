@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 import { CharacterDTO } from "@/models/CharacterDTO";
+
 import { api } from "@/services/api";
 
 import { FiSearch } from "react-icons/fi";
@@ -23,7 +25,6 @@ import {
   Container,
   Form,
   Input,
-  Select,
   ButtonsContainer,
   PageInfo,
 } from "./styles";
@@ -39,28 +40,31 @@ const formSchema = yup.object({
 export function Home() {
   const [characters, setCharacters] = useState<CharacterDTO[]>([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const { control, handleSubmit, reset } = useForm<FormDataProps>({
     resolver: yupResolver(formSchema),
   });
 
+  const navigate = useNavigate();
+
   async function loadCharacters() {
     try {
       const response = await api.get(`/character?page=${page}`);
       setCharacters(response.data.results);
+      setTotalPages(response.data.info.pages);
     } catch (error) {
-      console.log(error);
+      toast.error("Cant load characters!");
     }
   }
 
   async function handleSearch({ character_name }: FormDataProps) {
     try {
       const query = character_name.toLowerCase();
-      const response = await api.get(`/character/?name=${query}`);
-      setCharacters(response.data.results);
+      navigate(`/results/${query}`);
       reset({ character_name: "" });
     } catch (error) {
-      toast.error("Character not exists!");
+      toast.error("Character does not exists!");
       reset({ character_name: "" });
     }
   }
@@ -88,14 +92,6 @@ export function Home() {
           />
           <FiSearch />
         </div>
-        <Select>
-          <option selected disabled value="default">
-            Status...
-          </option>
-          <option value="alive">Alive</option>
-          <option value="dead">Dead</option>
-          <option value="all">All</option>
-        </Select>
       </Form>
 
       <CardList>
@@ -139,9 +135,9 @@ export function Home() {
         </Button>
 
         <Button
-          disabled={page >= 42}
+          disabled={page === totalPages}
           onClick={() => {
-            setPage(42);
+            setPage(totalPages);
           }}
         >
           <MdKeyboardDoubleArrowRight />
