@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
@@ -59,7 +60,8 @@ export function Home() {
       setCharacters(response.data.results);
       reset({ character_name: "" });
     } catch (error) {
-      console.log(error);
+      toast.error("Character not exists!");
+      reset({ character_name: "" });
     }
   }
 
@@ -69,6 +71,7 @@ export function Home() {
 
   return (
     <Container>
+      <Toaster />
       <Form onSubmit={handleSubmit(handleSearch)}>
         <div>
           <Controller
@@ -86,7 +89,7 @@ export function Home() {
           <FiSearch />
         </div>
         <Select>
-          <option selected disabled value="">
+          <option selected disabled value="default">
             Status...
           </option>
           <option value="alive">Alive</option>
