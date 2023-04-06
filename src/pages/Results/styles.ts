@@ -66,9 +66,9 @@ export const CardList = styled.div`
 
   @media (min-width: 1920px) {
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     grid-template-columns: auto auto auto auto auto;
-    gap: 20px;
+    gap: 40px;
   }
 `;
 

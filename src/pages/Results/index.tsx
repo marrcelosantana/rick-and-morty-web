@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
-import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
@@ -80,7 +79,6 @@ export function Results() {
                 setPage(page - 1);
               }}
             >
-              <MdKeyboardArrowLeft />
               <span>Previous</span>
             </Button>
 
@@ -91,7 +89,6 @@ export function Results() {
               }}
             >
               <span>Next</span>
-              <MdKeyboardArrowRight />
             </Button>
           </ButtonsContainer>
         </Container>

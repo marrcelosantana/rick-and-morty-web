@@ -10,8 +10,6 @@ import { api } from "@/services/api";
 
 import { FiSearch } from "react-icons/fi";
 import {
-  MdKeyboardArrowRight,
-  MdKeyboardArrowLeft,
   MdKeyboardDoubleArrowRight,
   MdKeyboardDoubleArrowLeft,
 } from "react-icons/md";
@@ -122,7 +120,6 @@ export function Home() {
             setPage(page - 1);
           }}
         >
-          <MdKeyboardArrowLeft />
           <span>Previous</span>
         </Button>
 
@@ -133,7 +130,6 @@ export function Home() {
           }}
         >
           <span>Next</span>
-          <MdKeyboardArrowRight />
         </Button>
 
         <Button
