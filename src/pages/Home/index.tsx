@@ -5,12 +5,25 @@ import { CharacterDTO } from "@/models/CharacterDTO";
 import { api } from "@/services/api";
 
 import { FiSearch } from "react-icons/fi";
+import {
+  MdKeyboardDoubleArrowRight,
+  MdKeyboardDoubleArrowLeft,
+} from "react-icons/md";
 
 import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { CardList, Container, Form, Input, Select } from "./styles";
+import {
+  CardList,
+  Container,
+  Form,
+  Input,
+  Select,
+  ButtonsContainer,
+  PageInfo,
+} from "./styles";
+import { Button } from "@/components/Button";
 
 type FormDataProps = {
   character_name: string;
@@ -22,6 +35,7 @@ const formSchema = yup.object({
 
 export function Home() {
   const [characters, setCharacters] = useState<CharacterDTO[]>([]);
+  const [page, setPage] = useState(1);
 
   const { control, handleSubmit, reset } = useForm<FormDataProps>({
     resolver: yupResolver(formSchema),
@@ -29,7 +43,7 @@ export function Home() {
 
   async function loadCharacters() {
     try {
-      const response = await api.get("/character");
+      const response = await api.get(`/character?page=${page}`);
       setCharacters(response.data.results);
     } catch (error) {
       console.log(error);
@@ -43,7 +57,7 @@ export function Home() {
 
   useEffect(() => {
     loadCharacters();
-  }, []);
+  }, [page]);
 
   return (
     <Container>
@@ -75,9 +89,52 @@ export function Home() {
 
       <CardList>
         {characters.map((character) => (
-          <Card character={character} />
+          <Card character={character} key={character.id} />
         ))}
       </CardList>
+
+      <PageInfo>
+        <span>Page {page}</span>
+      </PageInfo>
+
+      <ButtonsContainer>
+        <Button
+          disabled={page <= 1}
+          onClick={() => {
+            setPage(1);
+          }}
+        >
+          <MdKeyboardDoubleArrowLeft />
+        </Button>
+
+        <Button
+          disabled={page <= 1}
+          onClick={() => {
+            setPage(page - 1);
+          }}
+        >
+          <MdKeyboardDoubleArrowLeft />
+          <span>Previous</span>
+        </Button>
+        <Button
+          disabled={page >= 42}
+          onClick={() => {
+            setPage(page + 1);
+          }}
+        >
+          <span>Next</span>
+          <MdKeyboardDoubleArrowRight />
+        </Button>
+
+        <Button
+          disabled={page >= 42}
+          onClick={() => {
+            setPage(42);
+          }}
+        >
+          <MdKeyboardDoubleArrowRight />
+        </Button>
+      </ButtonsContainer>
     </Container>
   );
 }

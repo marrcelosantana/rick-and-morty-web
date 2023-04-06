@@ -57,7 +57,7 @@ export const Select = styled.select`
   border: 0;
   font-size: 13px;
 
-  background-color: ${({ theme }) => theme.BODY_BACKGROUND};
+  background-color: ${({ theme }) => theme.CARD_BACKGROUND};
   color: ${({ theme }) => theme.TEXT_WHITE};
   padding: 0 10px;
 `;
@@ -70,4 +70,40 @@ export const CardList = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 25px;
+`;
+
+export const PageInfo = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-weight: bold;
+  }
+`;
+
+export const ButtonsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  button {
+    color: ${({ theme }) => theme.TEXT_WHITE};
+    background-color: ${({ theme }) => theme.CARD_BACKGROUND};
+    border: 0;
+    border-radius: 8px;
+    padding: 2%;
+  }
 `;
