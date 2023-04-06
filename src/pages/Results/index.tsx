@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast";
 
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
+import { Loading } from "@/components/Loading";
 
 import { CharacterDTO } from "@/models/CharacterDTO";
 import { api } from "@/services/api";
@@ -18,7 +20,6 @@ import {
   PageInfo,
   ButtonsContainer,
 } from "./styles";
-import { Loading } from "@/components/Loading";
 
 export function Results() {
   const [characters, setCharacters] = useState<CharacterDTO[]>([]);
@@ -34,7 +35,8 @@ export function Results() {
       setCharacters(response.data.results);
       setTotalPages(response.data.info.pages);
     } catch (error) {
-      console.log("Cant load data");
+      toast.error("Character does not exists");
+      navigate("/");
     }
   }
 
@@ -46,6 +48,7 @@ export function Results() {
     <>
       {characters ? (
         <Container>
+          <Toaster />
           <Header>
             <Button
               onClick={() => {

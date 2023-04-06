@@ -58,7 +58,7 @@ export const Name = styled.span`
   font-size: 22px;
   font-weight: bolder;
   margin-bottom: 3px;
-
+  font-family: Kanit;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

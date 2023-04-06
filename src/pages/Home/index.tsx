@@ -27,6 +27,7 @@ import {
   Input,
   ButtonsContainer,
   PageInfo,
+  Title,
 } from "./styles";
 
 type FormDataProps = {
@@ -76,6 +77,7 @@ export function Home() {
   return (
     <Container>
       <Toaster />
+      <Title>THE RICK AND MORTY API</Title>
       <Form onSubmit={handleSubmit(handleSearch)}>
         <div>
           <Controller

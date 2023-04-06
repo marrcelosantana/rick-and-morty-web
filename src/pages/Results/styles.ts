@@ -19,6 +19,11 @@ export const Header = styled.header`
     padding: 20px 0;
     font-weight: bold;
 
+    @media (max-width: 414px) {
+      font-size: 14px;
+      padding: 10px 0;
+    }
+
     svg {
       color: ${({ theme }) => theme.TEXT_WHITE};
     }
@@ -29,6 +34,13 @@ export const Title = styled.span`
   font-size: 18px;
   font-weight: bold;
   text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media (max-width: 414px) {
+    font-size: 14px;
+  }
 `;
 
 export const CardList = styled.div`
@@ -39,6 +51,12 @@ export const CardList = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 25px;
+
+  @media (max-width: 414px) {
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto;
+  }
 `;
 
 export const PageInfo = styled.div`
@@ -74,5 +92,10 @@ export const ButtonsContainer = styled.div`
     border: 0;
     border-radius: 8px;
     padding: 2%;
+
+    @media (max-width: 414px) {
+      font-size: 14px;
+      padding: 5%;
+    }
   }
 `;
