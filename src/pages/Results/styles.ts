@@ -63,6 +63,13 @@ export const CardList = styled.div`
     justify-content: center;
     grid-template-columns: auto auto;
   }
+
+  @media (min-width: 1920px) {
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 20px;
+  }
 `;
 
 export const PageInfo = styled.div`
