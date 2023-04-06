@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 
 import { Card } from "@/components/Card";
+import { Button } from "@/components/Button";
 import { CharacterDTO } from "@/models/CharacterDTO";
 import { api } from "@/services/api";
 
 import { FiSearch } from "react-icons/fi";
 import {
+  MdKeyboardArrowRight,
+  MdKeyboardArrowLeft,
   MdKeyboardDoubleArrowRight,
   MdKeyboardDoubleArrowLeft,
 } from "react-icons/md";
@@ -23,7 +26,6 @@ import {
   ButtonsContainer,
   PageInfo,
 } from "./styles";
-import { Button } from "@/components/Button";
 
 type FormDataProps = {
   character_name: string;
@@ -113,9 +115,10 @@ export function Home() {
             setPage(page - 1);
           }}
         >
-          <MdKeyboardDoubleArrowLeft />
+          <MdKeyboardArrowLeft />
           <span>Previous</span>
         </Button>
+
         <Button
           disabled={page >= 42}
           onClick={() => {
@@ -123,7 +126,7 @@ export function Home() {
           }}
         >
           <span>Next</span>
-          <MdKeyboardDoubleArrowRight />
+          <MdKeyboardArrowRight />
         </Button>
 
         <Button

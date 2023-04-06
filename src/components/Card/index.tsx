@@ -1,5 +1,6 @@
 import { CharacterDTO } from "@/models/CharacterDTO";
 import { Loading } from "../Loading";
+import { StatusCircle } from "../StatusCircle";
 
 import {
   Avatar,
@@ -24,12 +25,21 @@ export function Card({ character }: CardProps) {
         <Loading />
       ) : (
         <>
-          <Avatar src={character.image} />
+          <Avatar src={character.image} alt={character.name} />
 
           <Info>
             <FirstInfo>
-              <Name>{character.name}</Name>
+              <Name title={character.name}>{character.name}</Name>
               <Status>
+                <StatusCircle
+                  color={
+                    character.status === "Alive"
+                      ? "green"
+                      : character.status === "Dead"
+                      ? "red"
+                      : "gray"
+                  }
+                />
                 {character.status} - {character.species}
               </Status>
             </FirstInfo>

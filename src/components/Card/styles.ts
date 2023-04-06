@@ -27,6 +27,7 @@ export const Info = styled.div`
 export const FirstInfo = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Details = styled.div`
@@ -38,9 +39,17 @@ export const Name = styled.span`
   font-size: 22px;
   font-weight: bolder;
   margin-bottom: 3px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Status = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
   font-size: 14px;
 `;
 

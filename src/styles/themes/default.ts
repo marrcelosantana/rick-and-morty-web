@@ -9,6 +9,8 @@ export const defaultTheme = {
   TEXT_WHITE: "#f5f5f5",
   TEXT_GRAY: "#9e9e9e",
 
-  GREEN: "#55cb44",
-  RED: "#d53c2e",
+  //Status Colors
+  "green-300": "#55cb44",
+  "red-300": "#d53c2e",
+  "gray-300": "#a4acaf",
 } as const;
