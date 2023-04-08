@@ -22,7 +22,6 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.CARD_BACKGROUND};
 
   &:hover {
-    box-shadow: 4px 6px 6px #000000;
     animation: ${bounceAnimation} 0.8s;
   }
 `;

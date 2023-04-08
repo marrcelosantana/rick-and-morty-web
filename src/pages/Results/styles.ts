@@ -13,7 +13,7 @@ export const Header = styled.header`
   button {
     gap: 10px;
     background-color: ${({ theme }) => theme.CARD_BACKGROUND};
-    color: ${({ theme }) => theme.TEXT_WHITE};
+    color: ${({ theme }) => theme.TEXT_DEFAULT};
     border-radius: 8px;
     border: none;
     padding: 20px 0;
@@ -25,7 +25,7 @@ export const Header = styled.header`
     }
 
     svg {
-      color: ${({ theme }) => theme.TEXT_WHITE};
+      color: ${({ theme }) => theme.TEXT_DEFAULT};
     }
   }
 `;
@@ -100,7 +100,7 @@ export const ButtonsContainer = styled.div`
   }
 
   button {
-    color: ${({ theme }) => theme.TEXT_WHITE};
+    color: ${({ theme }) => theme.TEXT_DEFAULT};
     background-color: ${({ theme }) => theme.CARD_BACKGROUND};
     border: 0;
     border-radius: 8px;

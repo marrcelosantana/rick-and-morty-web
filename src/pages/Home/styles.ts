@@ -46,7 +46,7 @@ export const Input = styled.input`
   border: 0;
 
   background-color: ${({ theme }) => theme.BODY_BACKGROUND};
-  color: ${({ theme }) => theme.TEXT_WHITE};
+  color: ${({ theme }) => theme.TEXT_DEFAULT};
 
   position: relative;
 
@@ -118,7 +118,7 @@ export const ButtonsContainer = styled.div`
   }
 
   button {
-    color: ${({ theme }) => theme.TEXT_WHITE};
+    color: ${({ theme }) => theme.TEXT_DEFAULT};
     background-color: ${({ theme }) => theme.CARD_BACKGROUND};
     border: 0;
     border-radius: 8px;
