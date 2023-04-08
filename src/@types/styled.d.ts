@@ -3,7 +3,7 @@ import { defaultTheme } from "@/styles/themes/default";
 
 import "styled-components";
 
-type ThemeType = typeof defaultTheme | typeof lightTheme;
+type ThemeType = typeof defaultTheme | lightTheme;
 
 declare module "styled-components" {
   export interface DefaultTheme extends ThemeType {}
