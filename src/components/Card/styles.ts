@@ -23,6 +23,7 @@ export const Container = styled.div`
 
   &:hover {
     animation: ${bounceAnimation} 0.8s;
+    box-shadow: 4px 6px 6px #111111;
   }
 `;
 
