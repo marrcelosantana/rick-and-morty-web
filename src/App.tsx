@@ -7,6 +7,7 @@ import { defaultTheme } from "./styles/themes/default";
 import { lightTheme } from "./styles/themes/light-theme";
 
 import { Header } from "./components/Header";
+
 import { AppRoutes } from "./routes/routes";
 
 export function App() {
